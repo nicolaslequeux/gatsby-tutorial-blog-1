@@ -2,7 +2,6 @@
 title: "Second Post - HTMH"
 date: 2018-12-01 18:00:00
 author: "Nicolas Lequeux"
-path: "/second-post"
 image: "../../images/jeep-2.jpeg"
 tags:
   - code

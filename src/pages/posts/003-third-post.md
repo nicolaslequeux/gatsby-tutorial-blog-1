@@ -2,7 +2,6 @@
 title: "Third Post - CSS"
 date: 2018-12-20 12:00:00
 author: "John Doe"
-path: "/third-post"
 image: "../../images/jeep-3.jpeg"
 tags:
   - design

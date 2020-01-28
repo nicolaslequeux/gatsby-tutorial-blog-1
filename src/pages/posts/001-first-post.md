@@ -2,7 +2,6 @@
 title: "Jeep Hotchkiss M-201"
 date: 2020-01-20 12:00:00
 author: "Nicolas"
-path: "/first-post"
 image: "../../images/jeep-1.jpeg"
 tags: ["jeep", "exterieur", "foret"]
 ---
