@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import { graphql, StaticQuery } from "gatsby"
 
 import Post from "../components/Post"
+import Sidebar from "../components/Sidebar"
 
 const IndexPage = () => (
   <Layout>
@@ -17,11 +18,12 @@ const IndexPage = () => (
           return (
             <div>
               {data.allMarkdownRemark.edges.map(({ node }) => (
-              <Post title={node.frontmatter.title}
+              <Post key={node.id} title={node.frontmatter.title}
                 author={node.frontmatter.author} 
                 path={node.frontmatter.path}
                 date={node.frontmatter.date}
-                fluid={node.frontmatter.image.childImageSharp.fluid}             
+                fluid={node.frontmatter.image.childImageSharp.fluid}
+                tags={node.frontmatter.tags}       
                 body={node.excerpt}
                 />
               ))}
@@ -30,7 +32,7 @@ const IndexPage = () => (
         }} />
       </Col>
     <Col md="4">
-      <div style={{width: "100%", height: "100%", backgroundColor: "grey"}}></div>
+      <Sidebar />
     </Col>      
     </Row>
   </Layout>
@@ -44,9 +46,10 @@ const indexQuery = graphql`
           id
           frontmatter {
             title
-            date(formatString: "MMM Do YYY")
+            date(formatString: "DD-MM-YYYY")
             author
             path
+            tags
             image {
               childImageSharp {
                 fluid(maxWidth: 600) {
@@ -61,9 +64,6 @@ const indexQuery = graphql`
     }
   }
 `
-
-
-
 export default IndexPage
 
 
