@@ -1,5 +1,6 @@
 const { slugify } = require('./src/utils/utilityFunctions');
 const path = require('path')
+const authors = require('./src/utils/authors')
 
 exports.onCreateNode = ({ node, actions }) => {
   
@@ -22,8 +23,7 @@ exports.onCreateNode = ({ node, actions }) => {
 // createPages = asynchronous method, return a promises or a callback
 exports.createPages = ({ actions, graphql }) => {
   
-  const { createPage } = actions;
-
+  const { createPage } = actions
   const singlePostTemplate = path.resolve('src/templates/single-post.js')
 
   return graphql(`
@@ -43,16 +43,19 @@ exports.createPages = ({ actions, graphql }) => {
     }
   `).then(res => {
 
-    if (res.error) return Promise.reject(res.errors)
+    if (res.errors) return Promise.reject(res.errors)
 
     const posts = res.data.allMarkdownRemark.edges
 
-    posts.forEach(({node}) => {
+    posts.forEach(({ node }) => {
       createPage({
         path: node.fields.slug,
         component: singlePostTemplate,
         context: {
-          slug: node.fields.slug
+          // Passing slug for template to use to get post
+          slug: node.fields.slug,
+          // Find author imageUrl from authors and pass it to the single post template
+          imageUrl: authors.find(x => x.name === node.frontmatter.author).imageUrl
         }
       })
     })
@@ -60,3 +63,4 @@ exports.createPages = ({ actions, graphql }) => {
   })
 
 }
+

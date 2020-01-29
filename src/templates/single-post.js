@@ -1,21 +1,20 @@
 import React from "react"
 import Layout from "../components/layout"
-import Sidebar from "../components/Sidebar"
 import { graphql, Link } from "gatsby"
 import SEO from "../components/seo"
-import { Badge, Card, CardBody, CardSubtitle, Row ,Col } from "reactstrap"
+import { Badge, Card, CardBody, CardSubtitle } from "reactstrap"
 import Img from "gatsby-image"
 import { slugify } from "../utils/utilityFunctions"
-
+import authors from "../utils/authors"
 
 export default ({data}) => {
+
   const post = data.markdownRemark.frontmatter
+  const author = authors.find(x => x.name === post.author)
+
   return (
-    <Layout>
+    <Layout pageTitle={post.title} postAuthor={author} authorImageFluid={data.file.childImageSharp.fluid}>
       <SEO title={post.title}/>
-      <h1>{post.title}</h1>
-      <Row>
-        <Col md="12">
           <Card>
             <Img className="card-image-top" fluid={post.image.childImageSharp.fluid}/>
             <CardBody>
@@ -35,18 +34,13 @@ export default ({data}) => {
               </ul>
             </CardBody>
           </Card>
-        </Col>
-        {/* <Col md="4">
-          <Sidebar/>
-        </Col> */}
-      </Row>
     </Layout>
   )
 }
 
 // the query take a string as argument, that we have to receive
 export const query = graphql`
-  query ($slug: String!) {
+  query ($slug: String!, $imageUrl: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }){
       id
       html
@@ -61,6 +55,13 @@ export const query = graphql`
               ...GatsbyImageSharpFluid
             }
           }
+        }
+      }
+    }
+    file(relativePath: { eq: $imageUrl}) {
+      childImageSharp {
+        fluid(maxWidth: 300) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

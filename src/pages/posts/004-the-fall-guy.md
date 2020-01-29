@@ -1,8 +1,8 @@
 ---
-title: "Third Post - CSS"
+title: "The Fall Guy"
 date: 2018-12-20 12:00:00
-author: "Nicolas"
-image: "../../images/jeep-3.jpeg"
+author: "Colt"
+image: "../../images/fallGuy-GMC-1.jpeg"
 tags:
   - design
   - tutorial
