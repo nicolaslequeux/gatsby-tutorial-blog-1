@@ -6,11 +6,21 @@ import { Badge, Card, CardBody, CardSubtitle } from "reactstrap"
 import Img from "gatsby-image"
 import { slugify } from "../utils/utilityFunctions"
 import authors from "../utils/authors"
+import { DiscussionEmbed } from "disqus-react"
 
-export default ({data}) => {
+export default ({ data, pageContext }) => {
 
-  const post = data.markdownRemark.frontmatter
-  const author = authors.find(x => x.name === post.author)
+  const post = data.markdownRemark.frontmatter;
+  const author = authors.find(x => x.name === post.author);
+
+  const baseUrl = 'https://gatsbytutorial.co.uk/';
+
+  const disqusShortname = "tutorial-1-blog";
+  const disqusConfig = {
+    identifier: data.markdownRemark.id,
+    title: post.title,
+    url: baseUrl + pageContext.slug
+  };
 
   return (
     <Layout pageTitle={post.title} postAuthor={author} authorImageFluid={data.file.childImageSharp.fluid}>
@@ -34,6 +44,15 @@ export default ({data}) => {
               </ul>
             </CardBody>
           </Card>
+          <h3 className="text-center">
+            Share this post
+          </h3>
+          <div className="text-center social-share-links">
+            <ul>
+              <li><a href={'https://www.facebook.com/sharer/sharer.php?u' + baseUrl + pageContext.slug } className="facebook" target="_blank" rel="noopener noreferrer">facebook</a></li>
+            </ul>
+          </div>
+          <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
     </Layout>
   )
 }

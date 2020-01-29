@@ -3,7 +3,7 @@ title: "Jeep Hotchkiss M-201"
 date: 2020-01-20 12:00:00
 author: "Nicolas"
 image: "../../images/jeep-1.jpeg"
-tags: ["jeep", "exterieur", "foret"]
+tags: ["jeep", "ardenne", "foret"]
 ---
 La Jeep Hotchkiss M-201, plus connue sous son simple surnom de « Jeep », est un véhicule tout-terrain léger, conçu en 1940 aux États-Unis et produit en grande série par les constructeurs américains Willys-Overland et Ford à partir de 1941 suivant le cahier des charges de l'armée américaine.
 
