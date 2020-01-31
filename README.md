@@ -7,7 +7,19 @@
   Nicolas Lequeux Blog Trial
 </h2>
 
-<p align="center">Coded with GatsbyJS and hosted on Netlify with continuous integration.</p>
+Coded with GatsbyJS and hosted on Netlify with continuous integration
+
+Repository deployed from GitHub to Netlify : git push == deployed!
+
+HTTPS Enforced
+
+Blog with:
+- Static pages
+- Posts as markdwon file
+- Authors
+- Tags
+- Etc...
+
 
 ## Portfolio
 [Site Web development](https://nicolaslequeux.com/)  
