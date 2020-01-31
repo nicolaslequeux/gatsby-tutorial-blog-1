@@ -8,7 +8,8 @@
   Nicolas Lequeux Blog Trial
 </h2>
 
-Coded with GatsbyJS and hosted on Netlify with continuous integration.
+<p align="center">Coded with GatsbyJS and hosted on Netlify with continuous integration.</p>
+
 
 ## Portfolio
 [Site Web development](https://nicolaslequeux.com/)  
