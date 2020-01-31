@@ -2,7 +2,7 @@ const authors = [
   {
     name: "Nicolas",
     imageUrl: "nicolas-1.jpeg",
-    bio: "Ardennais d'origine",
+    bio: "Amateur de Jeep",
     instagram: "https://www.instagram.com/nicolas_lequeux/"
   },
   {

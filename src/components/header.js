@@ -1,6 +1,5 @@
-import PropTypes from "prop-types"
-
 import React, { useState } from 'react'
+import { Link } from 'gatsby'
 
 import {
   Collapse,
@@ -12,6 +11,7 @@ import {
   NavLink,
 } from 'reactstrap';
 
+import iconJeep from "../images/icon-jeep.png"
 
 const Header = (props) => {
 
@@ -20,10 +20,19 @@ const Header = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
+
       <Navbar fixed="top" light expand="md">
+
         <div className="container">
+
+          <Link to="/">
+            <img src={iconJeep} style={{ maxHeight: "42px", maxWidth: "42px", marginRight: "25px" }} alt="Icon Jeep" />
+          </Link>
+
           <NavbarBrand href="/">{props.siteTitle}</NavbarBrand>
+
           <NavbarToggler onClick={toggle} />
+          
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
@@ -37,18 +46,13 @@ const Header = (props) => {
               </NavItem>
             </Nav>
           </Collapse>
+        
         </div>
+
       </Navbar>
+
   );
 }
 
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header;

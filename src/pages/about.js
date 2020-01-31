@@ -6,7 +6,8 @@ import SEO from "../components/seo"
 const AboutPage = () => (
   <Layout pageTitle="Informations">
     <SEO title="About" />
-    <h1>About us...</h1>
+    <p>Blog coded to learn GatsbyJS on January 2020.
+    </p>
   </Layout>
 )
 
