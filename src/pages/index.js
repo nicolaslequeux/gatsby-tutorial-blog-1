@@ -8,7 +8,7 @@ import PaginationLinks from "../components/PaginationLinks"
 
 export default ({ data }) => {
 
-  const postsPerPage = 2;
+  const postsPerPage = 3;
   let numberOfPages = Math.ceil(data.allMarkdownRemark.totalCount / postsPerPage);
 
   return(
@@ -37,7 +37,7 @@ export const query = graphql`
   query {
     allMarkdownRemark(
       sort: {fields: [frontmatter___date], order: DESC}
-      limit: 2
+      limit: 3
       ) {
       totalCount
       edges {

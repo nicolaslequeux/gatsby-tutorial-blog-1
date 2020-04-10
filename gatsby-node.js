@@ -103,7 +103,6 @@ exports.createPages = ({ actions, graphql }) => {
       }
     })
 
-
     // Create tag posts pages
     tags.forEach((tag) => {
       createPage({
@@ -117,7 +116,7 @@ exports.createPages = ({ actions, graphql }) => {
 
 
     // CREATE PAGINATION
-    const postsPerPage = 2
+    const postsPerPage = 3
     const numberOfPages = Math.ceil(posts.length / postsPerPage)
 
     Array.from({length: numberOfPages}).forEach((_, index) => {

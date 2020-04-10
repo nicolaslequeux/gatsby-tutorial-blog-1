@@ -4,9 +4,10 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import Footer from "./Footer"
-import Sidebar from "../components/Sidebar"
+import Sidebar from "./Sidebar"
 
 import '../styles/index.scss'
+
 import { Row, Col } from "reactstrap"
 
 const Layout = ({ authorImageFluid, children, pageTitle, postAuthor }) => { // Destructuring props.PageTitle = extract from props
